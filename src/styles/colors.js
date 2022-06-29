@@ -1,0 +1,21 @@
+export const palette = {
+  primary: '#0C5DFF',
+  white: '#fff',
+  black: '#040921',
+  inActiveGray: '#686B7A',
+  disabledBtn: '#EBEBED',
+  disabledBtnText: '#A1A3AC',
+  border: '#C3C4CA',
+  tint: '#E7EFFF',
+  background: '#FAFAFA',
+  lBg: '#ffeead',
+  borderInactive: '#c9cbcd', // 8%
+  success: '#499F68',
+  blackSixty: '#4d4e5e',
+  warningTint: '#FFF9F0',
+  warning: '#FFAF21',
+  alert: '#DD5147',
+  gray: '#72777A',
+  black76: '#2d2f40',
+  // success: '#6DB286',
+};

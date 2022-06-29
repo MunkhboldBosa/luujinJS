@@ -1,0 +1,6 @@
+module Pods_luujin_luujinTests {
+  umbrella header "Pods-luujin-luujinTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
