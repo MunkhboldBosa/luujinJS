@@ -7,6 +7,7 @@ import {
   Image,
   Dimensions,
   TouchableOpacity,
+  KeyboardAvoidingView,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
@@ -35,53 +36,53 @@ export const LoginScreen = props => {
       <View style={css.header}>
         <Image source={require('../../images/logo.png')} style={css.logo} />
       </View>
-      <KeyboardAwareScrollView
-        extraHeight={128}
+      {/* <KeyboardAwareScrollView
         enableOnAndroid
         bounces={false}
-        contentContainerStyle={{flex: 1, justifyContent: 'space-between'}}>
-        <View style={{flex: 1}} />
-        <View style={css.body}>
-          <CustomTextInput
-            label="Утасны дугаар"
-            value={text}
-            onChangeText={text => setText(text)}
-            // keyboardType="numeric"
-          />
-          <MainBtn
-            onPress={() => login()}
-            text="Бүртгүүлэх/Нэвтрэх"
-            style={{marginTop: layout.margin[3]}}
-            disabled={text.length >= 8 ? false : true}
-          />
-          <View style={css.insideWrap}>
-            <View style={css.border} />
-            <Text style={css.middleText}>Эсвэл</Text>
-            <View style={css.border} />
-          </View>
-          <View style={css.insideWrap}>
-            <TouchableOpacity style={css.signUpBtn}>
-              <Image source={require('../../images/googleLogo.png')} />
-              <Text style={[css.googleText, css.btnText]}>Google</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[css.signUpBtn, {backgroundColor: fbBlue}]}>
-              <Image source={require('../../images/fbLogo.png')} />
-              <Text style={[css.fbText, css.btnText]}>Facebook</Text>
-            </TouchableOpacity>
-          </View>
+        contentContainerStyle={{flex: 1}}> */}
+      {/* <KeyboardAvoidingView style={{flex: 1}} behavior="padding"> */}
+      <View style={{flex: 1}} />
+      <View style={css.body}>
+        <CustomTextInput
+          label="Утасны дугаар"
+          value={text}
+          onChangeText={text => setText(text)}
+          // keyboardType="numeric"
+        />
+        <MainBtn
+          onPress={() => login()}
+          text="Бүртгүүлэх/Нэвтрэх"
+          style={{marginTop: layout.margin[3]}}
+          disabled={text.length >= 8 ? false : true}
+        />
+        <View style={css.insideWrap}>
+          <View style={css.border} />
+          <Text style={css.middleText}>Эсвэл</Text>
+          <View style={css.border} />
         </View>
-        <View style={css.footer}>
-          <Text style={css.footerTextWrap}>
-            <Text style={css.text}>
-              Таныг хэн нэгэн урьсан уу? Хэрэв тийм бол
-            </Text>
-            <TouchableOpacity>
-              <Text style={[css.text, css.touchableText]}> энд дарна уу</Text>
-            </TouchableOpacity>
+        <View style={css.insideWrap}>
+          <TouchableOpacity style={css.signUpBtn}>
+            <Image source={require('../../images/googleLogo.png')} />
+            <Text style={[css.googleText, css.btnText]}>Google</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={[css.signUpBtn, {backgroundColor: fbBlue}]}>
+            <Image source={require('../../images/fbLogo.png')} />
+            <Text style={[css.fbText, css.btnText]}>Facebook</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+      <View style={css.footer}>
+        <Text style={css.footerTextWrap}>
+          <Text style={css.text}>
+            Таныг хэн нэгэн урьсан уу? Хэрэв тийм бол
           </Text>
-        </View>
-      </KeyboardAwareScrollView>
+          <TouchableOpacity>
+            <Text style={[css.text, css.touchableText]}> энд дарна уу</Text>
+          </TouchableOpacity>
+        </Text>
+      </View>
+      {/* </KeyboardAvoidingView> */}
+      {/* </KeyboardAwareScrollView> */}
     </View>
   );
 };
