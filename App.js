@@ -5,7 +5,6 @@ import {MainNavigator} from './src/navigation/main-navigator';
 import {Provider} from './src/provider/provider-context';
 
 export default function App() {
-  //Test
   return (
     <Provider>
       {Platform.OS === 'android' ? (
