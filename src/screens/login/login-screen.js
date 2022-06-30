@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 // import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 //Local
@@ -34,45 +35,53 @@ export const LoginScreen = props => {
       <View style={css.header}>
         <Image source={require('../../images/logo.png')} style={css.logo} />
       </View>
-      <View style={css.body}>
-        <CustomTextInput
-          label="Утасны дугаар"
-          value={text}
-          onChangeText={text => setText(text)}
-          // keyboardType="numeric"
-        />
-        <MainBtn
-          onPress={() => login()}
-          text="Бүртгүүлэх/Нэвтрэх"
-          style={{marginTop: layout.margin[3]}}
-          disabled={text.length >= 8 ? false : true}
-        />
-        <View style={css.insideWrap}>
-          <View style={css.border} />
-          <Text style={css.middleText}>Эсвэл</Text>
-          <View style={css.border} />
+      <KeyboardAwareScrollView
+        extraHeight={128}
+        enableOnAndroid
+        bounces={false}
+        contentContainerStyle={{flex: 1, justifyContent: 'space-between'}}>
+        <View style={{flex: 1}} />
+        <View style={css.body}>
+          <CustomTextInput
+            label="Утасны дугаар"
+            value={text}
+            onChangeText={text => setText(text)}
+            // keyboardType="numeric"
+          />
+          <MainBtn
+            onPress={() => login()}
+            text="Бүртгүүлэх/Нэвтрэх"
+            style={{marginTop: layout.margin[3]}}
+            disabled={text.length >= 8 ? false : true}
+          />
+          <View style={css.insideWrap}>
+            <View style={css.border} />
+            <Text style={css.middleText}>Эсвэл</Text>
+            <View style={css.border} />
+          </View>
+          <View style={css.insideWrap}>
+            <TouchableOpacity style={css.signUpBtn}>
+              <Image source={require('../../images/googleLogo.png')} />
+              <Text style={[css.googleText, css.btnText]}>Google</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[css.signUpBtn, {backgroundColor: fbBlue}]}>
+              <Image source={require('../../images/fbLogo.png')} />
+              <Text style={[css.fbText, css.btnText]}>Facebook</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-        <View style={css.insideWrap}>
-          <TouchableOpacity style={css.signUpBtn}>
-            <Image source={require('../../images/googleLogo.png')} />
-            <Text style={[css.googleText, css.btnText]}>Google</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={[css.signUpBtn, {backgroundColor: fbBlue}]}>
-            <Image source={require('../../images/fbLogo.png')} />
-            <Text style={[css.fbText, css.btnText]}>Facebook</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-      <View style={css.footer}>
-        <Text style={css.footerTextWrap}>
-          <Text style={css.text}>
-            Таныг хэн нэгэн урьсан уу? Хэрэв тийм бол
+        <View style={css.footer}>
+          <Text style={css.footerTextWrap}>
+            <Text style={css.text}>
+              Таныг хэн нэгэн урьсан уу? Хэрэв тийм бол
+            </Text>
+            <TouchableOpacity>
+              <Text style={[css.text, css.touchableText]}> энд дарна уу</Text>
+            </TouchableOpacity>
           </Text>
-          <TouchableOpacity>
-            <Text style={[css.text, css.touchableText]}> энд дарна уу</Text>
-          </TouchableOpacity>
-        </Text>
-      </View>
+        </View>
+      </KeyboardAwareScrollView>
     </View>
   );
 };
@@ -83,6 +92,9 @@ const css = StyleSheet.create({
     backgroundColor: Colors.palette.border,
     width: screenWidth * 0.35,
     height: 1,
+  },
+  body: {
+    flex: 3,
   },
   footer: {
     alignItems: 'center',
